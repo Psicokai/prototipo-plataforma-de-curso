@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #212121; /* Cor de fundo, pode alterar a vontade */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background: linear-gradient(to right, #6f0aad, #1badd1); /* Gradiente roxo */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        label {
+            color: #fff;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        input[type="text"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #333; /* Alterado para cor padrão */
+            font-size: 14px;
+        }
+        .select-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        .select-wrapper select {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #333; /* Alterado para cor padrão */
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .select-arrow {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #fff;
+        }
+        input[type="submit"] {
+            background: linear-gradient(to right, #1badd1, #6f0aad); /* Gradiente rosa */
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #6f0aad, #1badd1); /* Gradiente rosa */
+        }
+
+        /* Estilos adicionais */
+        .form-admin {
+            background: linear-gradient(to right, #ff6347, #ffa500); /* Gradiente laranja */
+        }
+
+        .form-professor {
+            background: linear-gradient(to right, #32cd32, #228b22); /* Gradiente verde */
+        }
+
+        .form-student {
+            background: linear-gradient(to right, #6495ed, #4169e1); /* Gradiente azul */
+        }
+    </style>
+</head>
+<body>
+
+<form id="user-form" action="/create-user" method="post">
+    <h2>Cadastro de Usuário</h2>
+    <label for="user-name">Nome</label>
+    <input type="text" id="user-name" name="user-name" style="text-align: center;">
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" style="text-align: center;">
+
+    <label for="password">Senha</label>
+    <input type="text" id="password" name="password" style="text-align: center;">
+
+    <label for="type" style="color: #fff;">Tipo de Usuário</label>
+    <div class="select-wrapper">
+        <select id="type" name="type" onchange="changeFormStyle()">
+            <option value="ADM"><i class="fas fa-user-shield"></i> Administrador</option>
+            <option value="PROFESSOR"><i class="fas fa-chalkboard-teacher"></i> Professor</option>
+            <option value="STUDENT"><i class="fas fa-user-graduate"></i> Aluno</option>
+        </select>
+        <div class="select-arrow"><i class="fas fa-chevron-down"></i></div>
+    </div>
+
+    <input type="submit" value="Cadastrar">
+</form>
+
+<script>
+    function changeFormStyle() {
+        var select = document.getElementById("type");
+        var selectedOption = select.options[select.selectedIndex].value;
+        var form = document.getElementById("user-form");
+
+        // Remover estilo anterior do user
+        form.classList.remove("form-admin");
+        form.classList.remove("form-professor");
+        form.classList.remove("form-student");
+
+        // Adicionar classe de estilo de acordo com user
+        if (selectedOption === "ADM") {
+            form.classList.add("form-admin");
+        } else if (selectedOption === "PROFESSOR") {
+            form.classList.add("form-professor");
+        } else if (selectedOption === "STUDENT") {
+            form.classList.add("form-student");
+        }
+    }
+</script>
+
+</body>
+</html>
