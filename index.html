@@ -17,7 +17,7 @@
         height: 100vh;
     }
     form {
-        background: linear-gradient(to right, #6f0aad, #1badd1); /*  roxo */
+        background: linear-gradient(to right, #6f0aad, #1badd1); /* Gradiente roxo */
         padding: 40px;
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -48,7 +48,7 @@
         border-radius: 5px;
         box-sizing: border-box;
         background-color: rgba(255, 255, 255, 0.1);
-        color: #333; /* padrão */
+        color: #333; /* Alterado para cor padrão */
         font-size: 14px;
     }
     .select-wrapper {
@@ -63,7 +63,7 @@
         border: none;
         border-radius: 5px;
         background-color: rgba(255, 255, 255, 0.1);
-        color: #333; /*  padrão */
+        color: #333; /* Alterado para cor padrão */
         font-size: 14px;
         cursor: pointer;
     }
@@ -76,7 +76,7 @@
         color: #fff;
     }
     input[type="submit"] {
-        background: linear-gradient(to right, #1badd1, #6f0aad); /*  rosa */
+        background: linear-gradient(to right, #1badd1, #6f0aad); /* Gradiente rosa */
         color: #fff;
         padding: 12px;
         border: none;
@@ -87,23 +87,23 @@
         transition: background-color 0.3s;
     }
     input[type="submit"]:hover {
-        background: linear-gradient(to right, #6f0aad, #1badd1); /*  rosa */
+        background: linear-gradient(to right, #6f0aad, #1badd1); /* Gradiente rosa */
     }
 
-    /* Estilo para usuário */
+    /* Estilos adicionais para diferentes tipos de usuário */
     .form-admin {
-        background: linear-gradient(to right, #ff6347, #ffa500); /*  laranja */
+        background: linear-gradient(to right, #ff6347, #ffa500); /* Gradiente laranja */
     }
 
     .form-professor {
-        background: linear-gradient(to right, #32cd32, #228b22); /*  verde */
+        background: linear-gradient(to right, #32cd32, #228b22); /* Gradiente verde */
     }
 
     .form-student {
-        background: linear-gradient(to right, #6495ed, #4169e1); /*  azul */
+        background: linear-gradient(to right, #6495ed, #4169e1); /* Gradiente azul */
     }
 
-    /* Animação para destacar a label */
+    /* Animação para destacar a label selecionada somente teste */
     @keyframes highlight-label {
         0% { transform: scale(1); }
         50% { transform: scale(1.1); }
@@ -152,7 +152,7 @@
         form.classList.remove("form-professor");
         form.classList.remove("form-student");
 
-        // Adicionar estilo com base na opção selecionada
+        // Adicionar classe de estilo com base na opção selecionada
         if (selectedOption === "ADM") {
             form.classList.add("form-admin");
         } else if (selectedOption === "PROFESSOR") {
@@ -161,7 +161,7 @@
             form.classList.add("form-student");
         }
 
-        // Adicionar animação à label teste
+        // Adicionar classe de animação à label, somente teste
         userTypeLabel.classList.add("highlight-label");
         setTimeout(function() {
             userTypeLabel.classList.remove("highlight-label");
